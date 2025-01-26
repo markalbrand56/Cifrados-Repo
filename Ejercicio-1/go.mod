@@ -1,3 +1,3 @@
-module Semana-2
+module Ejercicio-1
 
 go 1.23

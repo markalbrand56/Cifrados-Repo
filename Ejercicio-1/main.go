@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Semana-2/scripts"
+	"Ejercicio-1/scripts"
 	"fmt"
 	"strings"
 )
