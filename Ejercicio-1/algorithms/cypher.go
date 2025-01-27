@@ -24,3 +24,15 @@ func DynamicCypher(text string, key string) string {
 
 	return string(cipherText)
 }
+
+func DecryptCypher(cipherText string, key string) string {
+	var text []byte
+
+	keyLength := len(key)
+	for i := 0; i < len(cipherText); i++ {
+		// Operación XOR entre el carácter del texto y la clave (clave se repite si es más corta)
+		text = append(text, cipherText[i]^key[i%keyLength])
+	}
+
+	return string(text)
+}

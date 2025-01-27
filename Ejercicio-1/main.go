@@ -34,8 +34,15 @@ func main() {
 
 	fmt.Printf("Llave dinámica: %s\n", scripts.DynamicKey(15))
 
-	fmt.Printf("Cypher fijo: %s\n", algorithms.FixedCypher("abc", scripts.DynamicKey(3)))
+	fixed := algorithms.FixedCypher("abc", "123")
 
-	fmt.Printf("Cypher dinámico: %s\n", algorithms.DynamicCypher(word, scripts.DynamicKey(3)))
+	fmt.Printf("Cypher fijo: %s\n", fixed)
+	fmt.Printf("Descifrado (fijo): %s\n", algorithms.DecryptCypher(fixed, "123"))
+
+	dynamicKey := scripts.DynamicKey(15)
+	dynamic := algorithms.DynamicCypher(word, dynamicKey)
+
+	fmt.Printf("Cypher dinámico: %s\n", dynamic)
+	fmt.Printf("Descifrado (dinámico): %s\n", algorithms.DecryptCypher(dynamic, dynamicKey))
 
 }
