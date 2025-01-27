@@ -36,7 +36,9 @@ Binario a ASCII: Hello World
 Base64 a ASCII: Hello world
 ASCII a Base64: SGVsbG8gV29ybGQ=
 XOR de 10101010 y 01010101: 11111111
-Llave dinámica: #Rc$I|$v&`->EIC
-Cypher fijo: =9
-Cypher dinámico: ~0TZ:a:JZ1
+Llave dinámica: P:l[&r}0+\@0>7Q
+Cypher fijo: PPP
+Descifrado (fijo): abc
+Cypher dinámico: ! SCV,9O
+Descifrado (dinámico): Hello World
 ```
