@@ -32,4 +32,6 @@ func main() {
 
 	fmt.Printf("XOR de %s y %s: %s\n", a, b, algorithms.XOR(a, b)) // 11111111
 
+	fmt.Printf("Llave dinámica: %s\n", scripts.DynamicKey(15)) //
+
 }
