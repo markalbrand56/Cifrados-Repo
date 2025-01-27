@@ -32,6 +32,10 @@ func main() {
 
 	fmt.Printf("XOR de %s y %s: %s\n", a, b, algorithms.XOR(a, b)) // 11111111
 
-	fmt.Printf("Llave dinámica: %s\n", scripts.DynamicKey(15)) //
+	fmt.Printf("Llave dinámica: %s\n", scripts.DynamicKey(15))
+
+	fmt.Printf("Cypher fijo: %s\n", algorithms.FixedCypher("abc", scripts.DynamicKey(3)))
+
+	fmt.Printf("Cypher dinámico: %s\n", algorithms.DynamicCypher(word, scripts.DynamicKey(3)))
 
 }
