@@ -1,5 +1,7 @@
 package scripts
 
+import "strings"
+
 // Base64ToBinary Transforma un caracter en base64 a binario.
 func binary(n rune) string {
 	var result string
@@ -37,6 +39,8 @@ func Base64ToBinary(s string) string {
 }
 
 func BinaryToBase64(s string) string {
+	s = strings.Replace(s, " ", "", -1) // Elimina los espacios en blanco (separadores de bytes)
+
 	var result string
 	for i := 0; i < len(s); i += 6 {
 		var n rune
