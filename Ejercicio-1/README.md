@@ -1,8 +1,5 @@
-<!--
-PROJECT NAME
--->
-
 # CIFRADOS 2025
+
 <a id="readme-top"></a>
 
 <!--
@@ -10,43 +7,17 @@ PROJECT DESCRIPTION
 -->
 ## 📜 Descripción
 
-CIFRADOS 2025 es un repositorio diseñado para la gestión de material del curso Cifrados del año 2025. En este repositorio se encontraran los ejercicios y ejemplos de la clase, asi como la documentacion del contenido de la clase.
-
-* https://locano-uvg.github.io/cifrados-25/
-
+Este repositorio contiene todas las actividades del curso de *Cifrado de Información* de la carrera de *Ingeniería en 
+Ciencias de la Computación* de la *Universidad del Valle de Guatemala*.
 
 ## ✨ Características
-- Documentacion del contenido de la clase
+
+- Documentación del contenido de la clase
 - Ejercicios
 - Ejemplos
 - Proyectos
-<!-- 
-## 🚀 Instalación y Ejecución
 
-1. Clona este repositorio e instala las dependencias:
-
-    ```bash
-    git clone https://github.com/locano-uvg/stw-25.git
-    cd stw-25
-    ```
-
-2. Para que los ejercicios y ejemplos funcionen correctamente, muchas veces sera necesario configurar variables de entorno en un archivo `.env`
-
-    Crea un archivo .env en la raíz del proyecto y completa las variables de entorno necesarias.
-
-    ```bash
-    # Conexión con MongoDB
-    NEXT_PUBLIC_MONGODB_URI=<URL de MongoDB>
-
-    ```
-
-3. Ejecuta la aplicación en modo desarrollo:
-
-    ```bash
-    npm run dev
-    ```
-
-4. Accede a la aplicación en <http://localhost:3000>.
+<!--
 
 ## 📂 Estructura del Proyecto
 
@@ -75,42 +46,14 @@ La estructura del proyecto está organizada de la siguiente manera:
 ## 📦 Dependencias Principales
 
 Las principales dependencias del proyecto incluyen:
-* [![Node][Node.js]][Node-url]
-* [![Reveal][Reveal-js]][Reveal-url]
-* [![Python][Python]][Python-url]
-<!-- * [![Next][Next.js]][Next-url] -->
-<!-- * [![React][React.js]][React-url] -->
-<!-- * [![Bootstrap][Bootstrap.com]][Bootstrap-url] -->
-<!-- * [![Redux][Redux]][Redux-url] -->
-<!-- * [![MongoDB][MongoDB]][MongoDB-url] -->
-<!-- * [![AntDesign][AntDesign]][AntDesign-url] -->
-<!-- * [![Chartjs][Chartjs]][Chartjs-url] -->
-<!-- - [bcryptjs](https://www.npmjs.com/package/bcryptjs): Encriptación de contraseñas. -->
-<!-- - [exceljs](https://www.npmjs.com/package/exceljs)  -->
-<!-- - [file-saver](https://www.npmjs.com/package/file-saver) : Exportación de datos en formato Excel. -->
-<!-- - [jspdf](https://www.npmjs.com/package/jspdf): Generación de PDFs con tablas. -->
 
-Para más detalles, puedes consultar el archivo `package.json`.
+* [![Go][Go]][Go-url]
+
 <p align="right">(<a href="#readme-top">Ir al inicio</a>)</p>
-
-<!-- ## 🛠️ API Endpoints
-<details>
-  <summary>Principales Endpoints</summary>
-  
-  La API está construida utilizando Next.js y organiza sus endpoints en función de las entidades principales del sistema.
-  A continuación se presentan algunos de los endpoints más importantes:
-
-- **api/auth/**: Manejo de autenticación y autorización de usuarios.
-- **api/estadisticas/**: Endpoints para obtener estadísticas detalladas de exploradores e instituciones.
-- **api/reports/**: Endpoints para generar reportes personalizados en formato Excel.
-
-Cada endpoint está diseñado para recibir y responder con datos JSON, permitiendo la integración con los módulos del sistema.
-
-</details>
-<p align="right">(<a href="#readme-top">Ir al inicio</a>)</p> -->
 
 
 ## 👥 Contribuciones
+
 Si deseas contribuir al proyecto, por favor sigue los siguientes pasos:
 1. Realiza un fork del repositorio.
 2.	Crea una nueva rama para tu funcionalidad (git checkout -b feature/nueva-funcionalidad).
@@ -120,26 +63,15 @@ Si deseas contribuir al proyecto, por favor sigue los siguientes pasos:
 
 ### Developer's
 
-<a href="https://github.com/locano">
-  <img width='75' src="https://avatars.githubusercontent.com/u/16949087?v=4" alt="Ludwing Cano" />
+<a href="https://github.com/markalbrand56">
+  <img width='75' src="https://avatars.githubusercontent.com/u/62487869?v=4" alt="Mark Albrand" />
 </a>
 
-* [![Linkedin][Linkedin]][Linkedin-lud]
-* [![GitHub][GitHub]][GitHub-lud]
-
 <p align="right">(<a href="#readme-top">Ir al inicio</a>)</p>
-
-## 📞 Contacto
-Si tienes preguntas o comentarios, puedes contactarnos a traves de nuestras redes sociales:
-
-* [![Instagram][Instagram]][Instagram-url]
-* [![Website][Website]][Website-url]
-
-<p align="right">(<a href="#readme-top">Ir al inicio</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
+[Go]: https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white
+[Go-url]: https://golang.org/
 [Redux]: https://img.shields.io/badge/Redux-764ABC?style=flat&logo=redux&logoColor=white
 [Redux-url]: https://redux.js.org/
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
