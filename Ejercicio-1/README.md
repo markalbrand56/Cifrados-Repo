@@ -71,7 +71,7 @@ func main() {
     text := "Hello World"
     cipher := algorithms.Atbash(text)
     
-    err := sendSecretMessage(cipher, "John Doe")
+    err := utils.sendSecretMessage(cipher, "John Doe")
 	
     if err != nil {
         fmt.Println(err)
