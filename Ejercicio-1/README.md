@@ -10,7 +10,14 @@
 
 El cifrado Atbash es uno de los cifrados más antiguos conocidos en la actualidad, datando de alrededor del 500 a.C. 
 Originalmente fue utilizado por los hebreos para cifrar mensajes secretos, incluso lo utilizaron para ocultar mensajes
-en la biblia.
+en la biblia. Uno de ellos fue el siguiente:
+
+> *Jeremías 25:26*:
+> 
+> El rey de Sesac beberá después de ellos.
+
+En este mensaje, se cifra la palabra "Sesac" utilizando el cifrado Atbash (con el alfabeto hebreo), resultando en "Babel". 
+Esto lo utilizaron para ocultar el nombre de Babilonia, ya que por temas políticos no podían mencionarla directamente.
 
 A lo largo del tiempo este cifrado ha sido utilizado por más culturas y civilizaciones, como los griegos y los romanos.
 
@@ -54,8 +61,6 @@ Si el carácter es una letra mayúscula, se le resta a 'Z' y se suma 'A'.
 
 Esto resulta en la letra inversa del alfabeto, es decir, la 'A' se convierte en 'Z', la 'B' en 'Y', y así sucesivamente.
 
-Por ejemplo, si la letra es 'b' se convierte en 'y', si la letra es 'A' se convierte en 'Z'.
-
 Con esta implementación, una aplicación práctica sería cifrar un mensaje secreto para enviarlo a otra persona de forma segura.
 
 ```go
@@ -88,7 +93,7 @@ func main() {
 
 #### Vulnerabilidades
 
-- Es un cifrado muy simple y fácil de romper, ya que solo se necesita conocer el alfabeto para descifrar el mensaje.
+- La misma simplicidad del cifrado Atbash es una vulnerabilidad, ya que solo se necesita conocer el alfabeto para descifrarlo.
 - Es un cifrado monoalfabético, es decir, cada letra del alfabeto se sustituye por una única letra, lo que lo hace más vulnerable.
 - Es propenso a ataques de fuerza bruta, ya que solo hay 26 posibles combinaciones.
 
