@@ -56,6 +56,29 @@ Esto resulta en la letra inversa del alfabeto, es decir, la 'A' se convierte en 
 
 Por ejemplo, si la letra es 'b' se convierte en 'y', si la letra es 'A' se convierte en 'Z'.
 
+Con esta implementación, una aplicación práctica sería cifrar un mensaje secreto para enviarlo a otra persona de forma segura.
+
+```go
+package main
+
+import (
+    "fmt"
+	"Ejercicio-1/algorithms"
+	"Ejercicio-1/utils"
+)
+
+func main() {
+    text := "Hello World"
+    cipher := algorithms.Atbash(text)
+    
+	err := sendSecretMessage(cipher, "John Doe")
+	
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### Ventajas y vulnerabilidades
 
 #### Ventajas
