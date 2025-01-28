@@ -32,7 +32,7 @@ package algorithms
 
 // Atbash Cifra un texto utilizando el cifrado Atbash.
 func Atbash(s string) string {
-	var result string
+    var result string
     for _, c := range s {
         // Si el carácter es una letra minúscula, se le resta a 'z' y se suma 'a'
         if c >= 'a' && c <= 'z' {
@@ -43,7 +43,7 @@ func Atbash(s string) string {
             result += string('Z' - c + 'A')
         }
     }
-	return result
+    return result
 }
 ```
 
