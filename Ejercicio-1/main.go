@@ -8,14 +8,13 @@ import (
 
 func main() {
 	var word = "Hello World"
+	var base64 = "SGVsbG8gd29ybGQ=" // Hello world en base64
 
 	fmt.Printf("Texto: %s\n", word)
 
 	binary := scripts.AsciiToBinary(word)
 
 	fmt.Printf("ASCII a binario: %s\n", binary)
-
-	base64 := "SGVsbG8gd29ybGQ="
 
 	fmt.Printf("Base64 a binario: %s\n", scripts.Base64ToBinary(base64))
 
