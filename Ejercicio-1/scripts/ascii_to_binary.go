@@ -20,7 +20,7 @@ func AsciiToBinary(text string) string {
 
 // BinaryToAscii Función que convierte un texto binario a texto.
 func BinaryToAscii(binary string) string {
-	binary = strings.ReplaceAll(binary, " ", "")
+	binary = strings.ReplaceAll(binary, " ", "") // Elimina los espacios en blanco que pudieran separar los bloques de 8 bits
 
 	var asciiResult strings.Builder
 
@@ -34,8 +34,9 @@ func BinaryToAscii(binary string) string {
 	for i := 0; i < len(binary); i += 8 {
 		bit := binary[i : i+8]
 
-		// Convierte el bloque binario a un entero
+		// Convierte el byte a un entero, que es el código ASCII del carácter
 		value, err := strconv.ParseInt(bit, 2, 64)
+
 		if err != nil {
 			fmt.Println("Error: no se pudo convertir el bloque a un entero")
 			return ""
