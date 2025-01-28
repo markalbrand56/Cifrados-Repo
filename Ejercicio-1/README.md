@@ -6,6 +6,69 @@
 - Mostrar un ejemplo de aplicación
 - Explicar porque lo eligieron, cual creen que son sus ventajas y vulnerabilidades.
 
+### Historia de la criptografía: Cifrado Atbash
+
+El cifrado Atbash es uno de los cifrados más antiguos conocidos en la actualidad, datando de alrededor del 500 a.C. 
+Originalmente fue utilizado por los hebreos para cifrar mensajes secretos, incluso lo utilizaron para ocultar mensajes
+en la biblia.
+
+A lo largo del tiempo este cifrado ha sido utilizado por más culturas y civilizaciones, como los griegos y los romanos.
+
+Este cifrado es un tipo de cifrado de sustitución en el que las letras del alfabeto se sustituyen por sus equivalentes inversos. 
+Por ejemplo, la primera letra del alfabeto, la "A", se sustituye por la última letra del alfabeto, la "Z". 
+
+El cifrado Atbash es un tipo de cifrado monoalfabético, es decir, cada letra del alfabeto se sustituye por una única letra.
+
+#### Referencias
+
+- [Understanding the Atbash Cipher: A Simple and Effective Encryption Method | 2023](https://cyberw1ng.medium.com/understanding-the-atbash-cipher-a-simple-and-effective-encryption-method-2023-da89d71c4369)
+
+### Ejemplo de aplicación
+
+En el archivo `algorithms/atbash.go` se encuentra la siguiente implementación:
+
+```go
+package algorithms
+
+// Atbash Cifra un texto utilizando el cifrado Atbash.
+func Atbash(s string) string {
+	var result string
+	for _, c := range s {
+		// Si el carácter es una letra minúscula, se le resta a 'z' y se suma 'a'
+		if c >= 'a' && c <= 'z' {
+			result += string('z' - c + 'a')
+		}
+		// Si el carácter es una letra mayúscula, se le resta a 'Z' y se suma 'A'
+		if c >= 'A' && c <= 'Z' {
+			result += string('Z' - c + 'A')
+		}
+	}
+	return result
+}
+```
+
+En esta aplicación, se le pasa un texto a la función `Atbash` y esta retorna el texto cifrado utilizando el cifrado Atbash.
+
+Empieza por un bucle, iterando sobre cada carácter del texto. Si el carácter es una letra minúscula, se le resta a 'z' y se suma 'a'.
+Si el carácter es una letra mayúscula, se le resta a 'Z' y se suma 'A'.
+
+Esto resulta en la letra inversa del alfabeto, es decir, la 'A' se convierte en 'Z', la 'B' en 'Y', y así sucesivamente.
+
+Por ejemplo, si la letra es 'b' se convierte en 'y', si la letra es 'A' se convierte en 'Z'.
+
+### Ventajas y vulnerabilidades
+
+#### Ventajas
+
+- Es un cifrado muy simple y fácil de entender.
+- Es un cifrado simétrico, es decir, el cifrado y descifrado son iguales.
+
+#### Vulnerabilidades
+
+- Es un cifrado muy simple y fácil de romper, ya que solo se necesita conocer el alfabeto para descifrar el mensaje.
+- Es un cifrado monoalfabético, es decir, cada letra del alfabeto se sustituye por una única letra, lo que lo hace más vulnerable.
+- Es propenso a ataques de fuerza bruta, ya que solo hay 26 posibles combinaciones.
+
 ## Parte 2
 
 - Realizar la creación de un script que permita la conversión de palabras en texto ASCII a BINARIO
