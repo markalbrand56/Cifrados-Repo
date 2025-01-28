@@ -63,15 +63,15 @@ package main
 
 import (
     "fmt"
-	"Ejercicio-1/algorithms"
-	"Ejercicio-1/utils"
+    "Ejercicio-1/algorithms"
+    "Ejercicio-1/utils"
 )
 
 func main() {
     text := "Hello World"
     cipher := algorithms.Atbash(text)
     
-	err := sendSecretMessage(cipher, "John Doe")
+    err := sendSecretMessage(cipher, "John Doe")
 	
     if err != nil {
         fmt.Println(err)
