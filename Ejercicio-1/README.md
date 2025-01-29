@@ -133,3 +133,9 @@ Descifrado (fijo): abc
 Cypher dinámico: ! SCV,9O
 Descifrado (dinámico): Hello World
 ```
+
+## Uso de IA generativa
+
+Se adjuntan los recursos de IA generativa utilizados para la creación de este ejercicio:
+
+- [Chat-GPT (Free Tier)](https://chatgpt.com/share/67997629-88cc-8012-b0e2-9f05dc36eaf1)
