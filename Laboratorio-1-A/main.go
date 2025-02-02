@@ -35,4 +35,6 @@ func main() {
 	for c := 'A'; c <= 'Z'; c++ {
 		fmt.Printf("%c: %.2f\n", c, freq[c])
 	}
+
+	analysis.CompareFrequency(freq)
 }
