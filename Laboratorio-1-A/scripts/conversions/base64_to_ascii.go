@@ -1,4 +1,4 @@
-package scripts
+package conversions
 
 import (
 	"strings"
