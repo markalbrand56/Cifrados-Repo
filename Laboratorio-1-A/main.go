@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Ejercicio-2/algorithms"
+	"Laboratorio-1-A/algorithms"
 	"fmt"
 )
 
