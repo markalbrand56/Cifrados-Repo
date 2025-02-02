@@ -30,7 +30,7 @@ func main() {
 
 	freq := analysis.FrequencyAnalysis(caesar)
 
-	fmt.Printf("\nAnálisis de frecuencia para la palabra: '%s'\n", caesar)
+	fmt.Printf("\nAnálisis de frecuencia para el texto: '%s'\n", caesar)
 
 	for c := 'A'; c <= 'Z'; c++ {
 		fmt.Printf("%c: %.2f\n", c, freq[c])
