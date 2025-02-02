@@ -62,4 +62,6 @@ Z: 0.10
 
 Implementar una función para comparar la distribución encontrada contra la distribución teórica de las letras del castellanos. (40 puntos)
 
+*Ejemplo de análisis de frecuencia para el texto: 'Khoor Zruog'*
+
 ![Comparativa](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-1-A/examples/comparativa-frecuencia.png)
