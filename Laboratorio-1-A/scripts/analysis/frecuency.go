@@ -100,6 +100,10 @@ func CompareFrequency(frequency map[rune]float64) {
 	// Agregar barras al gráfico
 	p.Add(barsEsp, barsText)
 
+	p.Legend.Add("Español", barsEsp)
+	p.Legend.Add("Texto", barsText)
+	p.Legend.Top = true
+
 	// Etiquetas en el eje X
 	p.NominalX(strings.Split(letras, "")...)
 
