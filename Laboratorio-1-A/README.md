@@ -65,3 +65,9 @@ Implementar una función para comparar la distribución encontrada contra la dis
 *Ejemplo de análisis de frecuencia para el texto: 'Khoor Zruog'*
 
 ![Comparativa](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-1-A/examples/comparativa-frecuencia.png)
+
+## Uso de IA generativa
+
+Se adjuntan los recursos de IA generativa utilizados para la creación de este ejercicio:
+
+- [Chat-GPT (Free Tier)](https://chatgpt.com/share/679ffede-f904-8012-a61c-6aebd2547e08)
