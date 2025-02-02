@@ -4,7 +4,7 @@ import "strings"
 
 // FrequencyAnalysis Analiza la frecuencia de los caracteres en un texto. Retorna un mapa con la frecuencia de cada letra.
 func FrequencyAnalysis(text string) map[rune]float64 {
-	text = strings.ToUpper(text)
+	text = strings.ToUpper(text) // Convertir a mayúsculas
 	frequency := make(map[rune]float64)
 	total := 0
 
