@@ -112,3 +112,12 @@ func CompareFrequency(frequency map[rune]float64) {
 		log.Fatal(err)
 	}
 }
+
+func FrequencyScore(text string) float64 {
+	text = strings.ToUpper(text)
+	var score float64
+	for _, c := range text {
+		score += spanishFrequency[c]
+	}
+	return score
+}
