@@ -12,7 +12,7 @@ func AffineBruteForce(ciphertext string) (int, int, string) {
 	bestA, bestB := 1, 1
 	bestScore := 0.0
 	bestText := ""
-	validAs := []int{1, 3, 5, 7, 9, 11, 15} // Valores coprimos con 26
+	validAs := []int{1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 22, 23, 25, 26}
 
 	for _, a := range validAs {
 		for b := 1; b <= 16; b++ {

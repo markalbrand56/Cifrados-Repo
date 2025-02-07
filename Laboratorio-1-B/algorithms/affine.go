@@ -24,19 +24,34 @@ func modInverse(a, m int) int {
 
 // Affine Cifra un texto utilizando el cifrado afín.
 func Affine(text string, a int, b int) string {
-	m := 26
+	m := 27
 	if gcd(a, m) != 1 {
-		panic("La clave 'a' debe ser coprima con 26")
+		panic("La clave 'a' debe ser coprima con 27")
 	}
 
 	text = strings.ToUpper(text) // Convertir a mayúsculas
 	var encryptedText strings.Builder
 
 	for _, char := range text {
-		if char >= 'A' && char <= 'Z' {
-			P := int(char - 'A')
-			C := (a*P + b) % m                     // aP + b mod m
-			encryptedText.WriteByte(byte(C + 'A')) // Convertir a letra
+		if (char >= 'A' && char <= 'Z') || char == 'Ñ' {
+			var P int
+			if char == 'Ñ' {
+				P = 14 // Posición de la Ñ en el alfabeto español
+			} else {
+				P = int(char - 'A')
+				if P >= 14 {
+					P++ // Ajustar la posición para la Ñ
+				}
+			}
+			C := (a*P + b) % m
+			if C == 14 {
+				encryptedText.WriteRune('Ñ')
+			} else {
+				if C > 14 {
+					C-- // Ajustar la posición para la Ñ
+				}
+				encryptedText.WriteByte(byte(C + 'A'))
+			}
 		} else {
 			encryptedText.WriteRune(char)
 		}
@@ -46,9 +61,9 @@ func Affine(text string, a int, b int) string {
 
 // DecryptAffine Descifra un texto cifrado con el cifrado afín.
 func DecryptAffine(text string, a int, b int) string {
-	m := 26
+	m := 27
 	if gcd(a, m) != 1 {
-		panic("La clave 'a' debe ser coprima con 26")
+		panic("La clave 'a' debe ser coprima con 27")
 	}
 
 	aInverse := modInverse(a, m)
@@ -57,10 +72,25 @@ func DecryptAffine(text string, a int, b int) string {
 	var decryptedText strings.Builder
 
 	for _, char := range text {
-		if char >= 'A' && char <= 'Z' {
-			C := int(char - 'A')
+		if (char >= 'A' && char <= 'Z') || char == 'Ñ' {
+			var C int
+			if char == 'Ñ' {
+				C = 14 // Posición de la Ñ en el alfabeto español
+			} else {
+				C = int(char - 'A')
+				if C >= 14 {
+					C++ // Ajustar la posición para la Ñ
+				}
+			}
 			P := (aInverse * ((C - b + m) % m)) % m
-			decryptedText.WriteByte(byte(P + 'A'))
+			if P == 14 {
+				decryptedText.WriteRune('Ñ')
+			} else {
+				if P > 14 {
+					P-- // Ajustar la posición para la Ñ
+				}
+				decryptedText.WriteByte(byte(P + 'A'))
+			}
 		} else {
 			decryptedText.WriteRune(char)
 		}
