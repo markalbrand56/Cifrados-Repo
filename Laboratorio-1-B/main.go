@@ -53,7 +53,7 @@ func main() {
 
 	fmt.Printf("\nCifrado Vigenère:\n%s\n", filter(encryptedVigenere))
 
-	key, decryptedVigenere := bruteforce.BruteForceVigenere(filter(encryptedVigenere), "PA", 3)
+	key, decryptedVigenere := bruteforce.VigenereBruteForce(encryptedVigenere, "PA", 6)
 
 	fmt.Printf("\nDescifrado Vigenère (clave = %s):\n%s\n", key, decryptedVigenere)
 }
