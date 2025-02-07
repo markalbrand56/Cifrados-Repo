@@ -8,13 +8,32 @@ func Vigenere(text string, key string) string {
 	key = strings.ToUpper(key)   // Convertir a mayúsculas
 
 	var encryptedText strings.Builder
+	m := 27
 
 	for i, char := range text {
-		if char >= 'A' && char <= 'Z' {
-			P := int(char - 'A')
-			K := int(key[i%len(key)] - 'A')
-			C := (P + K) % 26
-			encryptedText.WriteByte(byte(C + 'A'))
+		if (char >= 'A' && char <= 'Z') || char == 'Ñ' {
+			var P, K int
+			if char == 'Ñ' {
+				P = 14 // Posición de la Ñ en el alfabeto español
+			} else {
+				P = int(char - 'A')
+				if P >= 14 {
+					P++ // Ajustar la posición para la Ñ
+				}
+			}
+			K = int(key[i%len(key)] - 'A')
+			if K >= 14 {
+				K++ // Ajustar la posición para la Ñ
+			}
+			C := (P + K) % m
+			if C == 14 {
+				encryptedText.WriteRune('Ñ')
+			} else {
+				if C > 14 {
+					C-- // Ajustar la posición para la Ñ
+				}
+				encryptedText.WriteByte(byte(C + 'A'))
+			}
 		} else {
 			encryptedText.WriteRune(char)
 		}
@@ -27,13 +46,32 @@ func DecryptVigenere(text string, key string) string {
 	text = strings.ToUpper(text)
 	key = strings.ToUpper(key)
 	var decryptedText strings.Builder
+	m := 27
 
 	for i, char := range text {
-		if char >= 'A' && char <= 'Z' {
-			C := int(char - 'A')
-			K := int(key[i%len(key)] - 'A')
-			P := (C - K + 26) % 26
-			decryptedText.WriteByte(byte(P + 'A'))
+		if (char >= 'A' && char <= 'Z') || char == 'Ñ' {
+			var C, K int
+			if char == 'Ñ' {
+				C = 14 // Posición de la Ñ en el alfabeto español
+			} else {
+				C = int(char - 'A')
+				if C >= 14 {
+					C++ // Ajustar la posición para la Ñ
+				}
+			}
+			K = int(key[i%len(key)] - 'A')
+			if K >= 14 {
+				K++ // Ajustar la posición para la Ñ
+			}
+			P := (C - K + m) % m
+			if P == 14 {
+				decryptedText.WriteRune('Ñ')
+			} else {
+				if P > 14 {
+					P-- // Ajustar la posición para la Ñ
+				}
+				decryptedText.WriteByte(byte(P + 'A'))
+			}
 		} else {
 			decryptedText.WriteRune(char)
 		}
