@@ -3,7 +3,6 @@ package bruteforce
 import (
 	"Laboratorio-1-B/algorithms"
 	"Laboratorio-1-B/scripts/analysis"
-	"fmt"
 )
 
 // CaesarBruteForce Realiza un ataque de fuerza bruta para descifrar un texto cifrado con el cifrado César.
@@ -21,8 +20,6 @@ func CaesarBruteForce(ciphertext string) (int, string) {
 			bestShift = shift
 			bestText = decrypted
 		}
-
-		fmt.Println("Desplazamiento", shift, ":", decrypted)
 	}
 
 	return bestShift, bestText
