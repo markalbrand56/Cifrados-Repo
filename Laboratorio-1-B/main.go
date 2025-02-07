@@ -46,4 +46,14 @@ func main() {
 	a, b, decryptedAffine := bruteforce.AffineBruteForce(filter(encryptedAffine))
 
 	fmt.Printf("\nDescifrado Afín (a = %d, b = %d):\n%s\n", a, b, decryptedAffine)
+
+	file, err = os.ReadFile("examples/vigenere.txt")
+
+	encryptedVigenere := string(file)
+
+	fmt.Printf("\nCifrado Vigenère:\n%s\n", filter(encryptedVigenere))
+
+	key, decryptedVigenere := bruteforce.BruteForceVigenere(filter(encryptedVigenere), "PA", 3)
+
+	fmt.Printf("\nDescifrado Vigenère (clave = %s):\n%s\n", key, decryptedVigenere)
 }
