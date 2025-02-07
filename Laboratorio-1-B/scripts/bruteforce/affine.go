@@ -3,7 +3,6 @@ package bruteforce
 import (
 	"Laboratorio-1-B/algorithms"
 	"Laboratorio-1-B/scripts/analysis"
-	"fmt"
 	"strings"
 )
 
@@ -18,8 +17,6 @@ func AffineBruteForce(ciphertext string) (int, int, string) {
 		for b := 1; b <= 16; b++ {
 			decrypted := algorithms.DecryptAffine(ciphertext, a, b)
 
-			fmt.Printf("a = %d, b = %d: %s\n", a, b, decrypted)
-
 			if decrypted == "" {
 				continue
 			}
@@ -33,8 +30,6 @@ func AffineBruteForce(ciphertext string) (int, int, string) {
 			}
 		}
 	}
-
-	fmt.Printf("El mejor puntaje fue: %f\n", bestScore)
 
 	return bestA, bestB, bestText
 }
