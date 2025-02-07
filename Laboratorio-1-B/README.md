@@ -1,73 +1,47 @@
-# Laboratorio 1 - A
+# Laboratorio 1 - B
 
-## Parte 1
+## Problemas a resolver
 
-Implementar las funciónes de encriptado y decriptado para un texto plano en castellano (27 letras) para los siguntes métodos (30 puntos)
+Implementar un análisis de fuerza bruta por frecuencias. Para cada uno de los siguientes archivos y determinar cuál fue 
+la clave utilizada en cada caso, y decriptar el mensaje. (100 pts)
 
-- a. Cifrado Caesar
-- b. Cifrado afín
-- c. Cifrado Vigenére
+En los archivos de texto cipher1.txt, cipher2.txt y cipher3.txt se encuentran tres textos cifrados, en los que se usaron diferentes métodos, como sigue:
 
-```text
-Parte 1
-Texto: Hello World
+- cipher1.txt, cifrado Caesar.
+- cipher2.txt, cifrado afín.
+- cipher3.txt, cifrado Vigenére
 
-Cifrado César: Khoor Zruog
-Descifrado César: Hello World
+### Resultados
 
-Cifrado Afín: ARMMV TVEMO
-Descifrado Afín: HELLO WORLD
+Los resultados obtenidos para cada uno de los archivos son los siguientes:
 
-Cifrado Vigenère: RIJVS GSPVH
-Descifrado Vigenère: HELLO WORLD
+```bash
+go run main.go
 ```
 
-## Parte 2
-
-Implementar el uso de funciones para generar un análisis de frecuencia de un texto plano. (30 puntos)
-
 ```text
-Parte 2
+Cifrado César:
+jjqaopñlhwxañejplzecepwhajyljopwjpaarlhqyeljhwwcehezwzyñemplcñwbeywyñemplwcehezwzmwñwwxñarewñaoqjiaywjeoilzazabajowyñqyewhloxñejzwhwywmwyezwzzailzebeywññwmezwiajpaahqolzawhclñepilouyhwraoyñemplcñwbeyloqjwwyyeljjayaowñewmwñwwjpeyemwñjlowhwobqpqñwowiajwvwozayexañoacqñezwz
 
-Análisis de frecuencia para el texto: 'Khoor Zruog'
-A: 0.00
-B: 0.00
-C: 0.00
-D: 0.00
-E: 0.00
-F: 0.00
-G: 0.10
-H: 0.10
-I: 0.00
-J: 0.00
-K: 0.10
-L: 0.00
-M: 0.00
-N: 0.00
-O: 0.30
-P: 0.00
-Q: 0.00
-R: 0.20
-S: 0.00
-T: 0.00
-U: 0.10
-V: 0.00
-W: 0.00
-X: 0.00
-Y: 0.00
-Z: 0.10
-```
+Descifrado César (desplazamiento 22):
+nnuestñplabeñintpdigitalencpnstanteevplucipnlaagilidadcñiqtpgñaficacñiqtpagilidadqañaabñeviañesunmecanismpdedefensacñucialpsbñindalacaqacidaddempdificaññaqidamenteeluspdealgpñitmpsyclavescñiqtpgñaficpsunaaccipnnecesañiaqañaanticiqañnpsalasfutuñasamenazasdecibeñseguñidad
 
-## Parte 3
+Cifrado Afín:
+zigiupjdipoziyicbdoddiyxbhjorbpbdodcimidiiahxoixdipjcohosmicioxhtpiidmrdipixxjxxiqipjmzoditbpbdodyxmybopsmiixubhbjopjcohoyozhicpiixpouiujxbodiubpicdicbchiuocfxjtoxbznjxuoybjzqopbjcoociuxicocsmipjrxoxjzxiymixoxcixobdouizhinmixjzpocsmidiujchxoxjzyxbhjorbpbdodxiiupokozdjxobdouizhicmcypoqicyxbhjrxonbyocfoprjxbhujcyjuxjuihbdjcjxjhxjczmiqjcfcirmxjcchibzybdizhicbxqiyjujmzypoxjigiupjdipobujxhozybodipoyxbhjorbpbdodizzmichxotohoppoyjzhbzmoyjzhxopocouizokocdbzoubyocdiybtixcirmxbdod
 
-Implementar una función para comparar la distribución encontrada contra la distribución teórica de las letras del castellanos. (40 puntos)
+Descifrado Afín (a = 5, b = 15):
+NEJEMLODELANECESIDADDECRITOAGILIDADSEUEDEEXTRAERDELOSATAQUESEARTBLEEDUGDELERRORREVELOUNADEBILIDADCRUCIALQUEERMITIOALOSATACANTESLEERLAMEMORIADEMILESDESISTEMASYROBARINFORMACIONVALIOSAASEMRESASQUELOGRARONRECUERARSERAIDAMENTEFUERONLASQUEDEMOSTRARONCRITOAGILIDADREEMLAZANDORAIDAMENTESUSCLAVESCRITOGRAFICASYALGORITMOSCOMROMETIDOSOROTROSNUEVOSYSEGUROSSTEINCIDENTESIRVECOMOUNCLAROEJEMLODELAIMORTANCIADELACRITOAGILIDADENNUESTRABATALLACONTINUACONTRALASAMENAZASDINAMICASDECIBERSEGURIDAD
 
-*Ejemplo de análisis de frecuencia para el texto: 'Khoor Zruog'*
+Cifrado Vigenère:
+pulqnstlcrkdhhcakiqlcevhthyshzkcgofosoqiwafrchsnknynnslaymwbpzyefsahnraenrezdlycnoctgcssieqasatnyzsfkeuwrtarrsktsyrmdsaqnnsitpalrtfcnloialtwhseouwiednelitpcrvwsobetsboqavdftyrdorrgpmdpgglarpdakosedefrtrlolrxsofwqlcefzpsrabriadsisnlnqxolelrtcpiiiegpaxwppnsujpnriuofqadwzpaatnoaibavzpetivsccgavsaaymwbpzyifaxncnmssejaudbpstsqxolcnoctgcsnpeqtsogugeletcgadatnreudctccfwraqchaesrokscoudwqhytdojepsfraqseqotsrafscjseydinblwhknkemdsocnwzgucswgebynvojoqcathabolnieyleorelafvpsrajjtlnsiwharalwcfnreojiaolekebafrtsaixgprjolapsrakrtcnnnbpcnmijjabokoruynmwracsmdiienatxcyufopmcnspilmabtnreddidythhridrsresqeydclnswhjaldsgtsycmjplcsishoyleorelavdipyrsjcdcsuwurydhtktsrhsityrsbtnpiwhvowajjtlysudbpstsrerysujpnriuoietefikajmwbjepoeetrynddimcthresbeuwurydhortsadsipnrddjalthhcdjeljcazoeppdctasbpnynbrlyrhgtcnrvojopihrtlyukutnaisrtaatnoaixakbkeqtkdimcthresbeuwurydhepryqnsieynlsvupoleprylsqemumorinnujpnriuotlcnxdgucpjqpbnrvoaaleusiibavrtcpiiieaeidwsabchblujnwgpbglarpdcsudboqnvzgucpksieltsbknedwvrncdohowpksieltwowopawhtlkoesctndwrprsnloatncnoctgchscnselihaaraejoerstxa
 
-![Comparativa](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-1-A/examples/comparativa-frecuencia.png)
+Descifrado Vigenère (clave = PAYASO):
+AUNQUEELERRORHEARTBLEEDSEHASOLUCIONADOSIEMPREHAYUNANUEVAAMENAZAENELHORIZONTEHOYLACUANTICAESESAAMENAZAQUEPUEDEATRAVESARTODASNUESTRASDEFENSASANTESDEQUETODOESTEPERDIDODEBEMOSADOPTARLACRIPTOAGILIDADPARADEFENDERNOSDISPONIBLEENLASPRINCIPALESSOLUCIONESDECRIPTOGRAFIAPOSCUANTICAPQCDELAACTUALIDADLAEVIDENCIADELAAMENAZAINMINENTEDELACOMPUTACIONCUANTICAYAESTAAQUIESPECIALMENTECONTECNICASCOMOSTORENOWDECRYPTLATERSNDLQUEYAESTANENJUEGOSNDLESUNMETODOENELQUESEROBANDATOSCIFRADOSYSEALMACENANHASTAQUELOSPIRATASINFORMATICOSPUEDANDESCIFRARLOSMASTARDECONUNACOMPUTADORACUANTICAESTOSIGNIFICAUNAAMENAZAINMINENTELOSDATOSCIFRADOSSEGONLOSESTANDARESACTUALESPEROALMACENADOSPARAUNDESCIFRADOFUTUROESTARANENRIESGOYAQUELASCOMPUTADORASCUANTICASEVENTUALMENTEROMPERANLOSMETODOSDECIFRADOACTUALESPORLOTANTOSNDLESUNABOMBADETIEMPOYUNCLARORECORDATORIODELAURGENCIADEACTUALIZARNUESTROSMETODOSDECIFRADOPARAQUESEANSEGUROSPARALACOMPUTACIONCUANTICAELENFOQUEPQCABORDALANECESIDADDECRIPTOAGILIDADCONVULNERABILIDADESCOMOSNDLQUEPRESENTANUNPELIGROCLAROYPRESENTEAHORAESELMOMENTODEDARUNSALTOCUANTICOENNUESTRACRIPTOGRAFIA
+
+````
 
 ## Uso de IA generativa
 
 Se adjuntan los recursos de IA generativa utilizados para la creación de este ejercicio:
 
-- [Chat-GPT (Free Tier)](https://chatgpt.com/share/679ffede-f904-8012-a61c-6aebd2547e08)
+- [Chat-GPT (Free Tier)](https://chatgpt.com/share/67a58e87-b57c-8012-af71-ea7e5bf25716)
