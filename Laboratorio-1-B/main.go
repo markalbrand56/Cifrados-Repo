@@ -22,5 +22,5 @@ func main() {
 	shift, decryptedCaesar := bruteforce.CaesarBruteForce(encryptedCaesar)
 
 	// Imprimir el texto descifrado
-	fmt.Printf("Descifrado César (desplazamiento %d):\n%s\n", shift, decryptedCaesar)
+	fmt.Printf("\nDescifrado César (desplazamiento %d):\n%s\n", shift, decryptedCaesar)
 }
