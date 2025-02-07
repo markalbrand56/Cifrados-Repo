@@ -29,7 +29,7 @@ func main() {
 	encryptedCaesar := string(file)
 
 	// Imprimir el contenido del archivo
-	fmt.Printf("Cifrado César:\n%s\n", encryptedCaesar)
+	fmt.Printf("\nCifrado César:\n%s\n", encryptedCaesar)
 
 	// Fuerza bruta para descifrar el texto
 	shift, decryptedCaesar := bruteforce.CaesarBruteForce(encryptedCaesar)
@@ -41,7 +41,7 @@ func main() {
 
 	encryptedAffine := string(file)
 
-	fmt.Printf("Cifrado Afín:\n%s\n", filter(encryptedAffine))
+	fmt.Printf("\nCifrado Afín:\n%s\n", filter(encryptedAffine))
 
 	a, b, decryptedAffine := bruteforce.AffineBruteForce(filter(encryptedAffine))
 
