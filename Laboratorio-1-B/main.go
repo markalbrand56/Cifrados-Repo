@@ -6,6 +6,19 @@ import (
 	"os"
 )
 
+// filter Elimina los caracteres no alfabéticos de un texto.
+func filter(text string) string {
+	var filteredText []rune
+
+	for _, c := range text {
+		if (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
+			filteredText = append(filteredText, c)
+		}
+	}
+
+	return string(filteredText)
+}
+
 func main() {
 	file, err := os.ReadFile("examples/ceasar.txt")
 
@@ -23,4 +36,14 @@ func main() {
 
 	// Imprimir el texto descifrado
 	fmt.Printf("\nDescifrado César (desplazamiento %d):\n%s\n", shift, decryptedCaesar)
+
+	file, err = os.ReadFile("examples/afines.txt")
+
+	encryptedAffine := string(file)
+
+	fmt.Printf("Cifrado Afín:\n%s\n", filter(encryptedAffine))
+
+	a, b, decryptedAffine := bruteforce.AffineBruteForce(filter(encryptedAffine))
+
+	fmt.Printf("\nDescifrado Afín (a = %d, b = %d):\n%s\n", a, b, decryptedAffine)
 }
