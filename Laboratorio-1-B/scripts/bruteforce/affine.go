@@ -3,7 +3,6 @@ package bruteforce
 import (
 	"Laboratorio-1-B/algorithms"
 	"Laboratorio-1-B/scripts/analysis"
-	"strings"
 )
 
 // AffineBruteForce realiza un ataque de fuerza bruta al cifrado afín.
@@ -20,7 +19,7 @@ func AffineBruteForce(ciphertext string) (int, int, string) {
 			if decrypted == "" {
 				continue
 			}
-			score := analysis.FrequencyScore(strings.ToLower(decrypted))
+			score := analysis.FrequencyScore(decrypted)
 
 			if score > bestScore {
 				bestScore = score
