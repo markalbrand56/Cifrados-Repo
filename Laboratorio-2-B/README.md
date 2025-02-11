@@ -19,28 +19,28 @@ Requerimiento:
 
 ## Resultados
 
-```text
-Laboratorio-2-A
-
-1. Cadenas a bytes
-Hola: [72 111 108 97]
-Adios: [65 100 105 111 115]
-
-2. Bytes a cadenas
-[72 111 108 97]: Hola
-[65 100 105 111 115]: Adios
-
-3. Texto a base64
-Hola: SG9sYQ==
-Adios: QWRpb3M=
-
-4. Base64 a texto
-SG9sYQ==: Hola
-QWRpb3M=: Adios
-
-5. XOR entre dos cadenas
-01001000 01101111 01101100 01100001  (Hola) XOR 01000001 01100100 01101001 01101111 01110011  (Adios): 00001001000010110000010100001110
+```bash
+go run main.go
 ```
 
+### XOR entre dos cadenas
+
+```text
+1. Cifrado XOR con cadenas de texto
+	Hola XOR abc1 = 290d0f50
+```
+
+### Descifrado de imagen con llave
+
+![XOR_Imagen](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-2-B/examples/imagen_descifrada.png)
+
+### XOR entre dos imágenes
+
+![Imagen 1](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-2-B/examples/imagen3.png)
+![Imagen 2](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-2-B/examples/imagen4.png)
+
+![Imagen XOR](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-2-B/examples/imagen_xor_resultado.png)
 
 ## Uso de IA generativa
+
+- [ChatGPT (Free Tier)](https://chatgpt.com/share/67ab6de3-349c-8012-8079-b0fa07a84283)
