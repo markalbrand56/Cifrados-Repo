@@ -18,3 +18,15 @@ func XOR(a, b string) string {
 	}
 	return result
 }
+
+func XORBytes(data []byte, key string) []byte {
+	keyBytes := []byte(key)
+	keyLen := len(key)
+	result := make([]byte, len(data))
+
+	for i := 0; i < len(data); i++ {
+		result[i] = data[i] ^ keyBytes[i%keyLen]
+	}
+
+	return result
+}

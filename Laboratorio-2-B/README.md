@@ -5,18 +5,16 @@
 Requerimiento:
 1. Implementar una función que haga la operación XOR, bit a bit, con dos cadenas de
    texto.
-   Problemas a resolver
 2. Dada la imagen XOR_Imagen, y la llave “cifrados_2025” encontrar el valor original de la
    imagen.
-   a. Deben de convertir la imagen a base 64 y aplicarle un xor con la llave para
+   - a) Deben de convertir la imagen a base 64 y aplicarle un xor con la llave para
    encontrar su valor
 3. Investigar porque al aplicar XOR con una llave de texto la imagén se corrompe.
-4. Investigar como aplicar un xor a 2 imagnes. Para esto deben de eleccionar 2 imágenes,
+4. Investigar como aplicar un xor a 2 imágenes. Para esto deben de seleccionar 2 imágenes,
    luego proceder hacer un xor entre las dos imágenes. Esto significa que una imagen es la
    original y la otra se utilizará como llave para aplicar el xor.
-   a. Mostrar las imágenes utilizadas y el resultado, asi mismo explique que
-   inconvenientes encontro al momento de realizar el xor.
-5. 
+   - a) Mostrar las imágenes utilizadas y el resultado, asi mismo explique que
+   inconvenientes encontró al momento de realizar el xor.
 
 
 ## Resultados
