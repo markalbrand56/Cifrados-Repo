@@ -35,9 +35,30 @@ Además, la investigación de una propiedad estadística de la función XOR.
    b. Si en dado caso la llave es menor complementarla para llegar al mismo tamaño
 
 
+## Resultados
+
+```text
+Laboratorio-2-A
+
+1. Cadenas a bytes
+Hola: [72 111 108 97]
+Adios: [65 100 105 111 115]
+
+2. Bytes a cadenas
+[72 111 108 97]: Hola
+[65 100 105 111 115]: Adios
+
+3. Texto a base64
+Hola: SG9sYQ==
+Adios: QWRpb3M=
+
+4. Base64 a texto
+SG9sYQ==: Hola
+QWRpb3M=: Adios
+
+5. XOR entre dos cadenas
+01001000 01101111 01101100 01100001  (Hola) XOR 01000001 01100100 01101001 01101111 01110011  (Adios): 00001001000010110000010100001110
+```
+
 
 ## Uso de IA generativa
-
-Se adjuntan los recursos de IA generativa utilizados para la creación de este ejercicio:
-
-- [Chat-GPT (Free Tier)](https://chatgpt.com/share/67a58e87-b57c-8012-af71-ea7e5bf25716)

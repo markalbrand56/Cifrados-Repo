@@ -48,3 +48,13 @@ func BinaryToAscii(binary string) string {
 
 	return asciiResult.String()
 }
+
+// AsciiToBytes Función que convierte un texto a bytes, usando la función []byte.
+func AsciiToBytes(text string) []byte {
+	return []byte(text)
+}
+
+// BytesToAscii Función que convierte un texto a bytes, usando la función string.
+func BytesToAscii(bytes []byte) string {
+	return string(bytes)
+}
