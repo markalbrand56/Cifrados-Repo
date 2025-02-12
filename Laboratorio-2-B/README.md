@@ -34,6 +34,14 @@ go run main.go
 
 ![XOR_Imagen](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-2-B/examples/imagen_descifrada.png)
 
+### Corrupción de imagen al aplicar XOR con llave de texto
+
+Entre los posibles motivos por los que una imagen se corrompe al aplicar XOR con una llave de texto, se encuentran:
+
+- La longitud de la llave es mayor a la longitud de la imagen.
+- La imagen original tiene una compresión, aplicar un XOR con una llave de texto puede alterar la estructura de la imagen.
+- El tipo de imagen no es compatible con el XOR. Por ejemplo, una imagen en formato .jpg no es compatible con XOR debido a la compresión que posee.
+
 ### XOR entre dos imágenes
 
 ![Imagen 1](https://github.com/markalbrand56/Cifrados-Repo/blob/main/Laboratorio-2-B/examples/imagen3.png)
