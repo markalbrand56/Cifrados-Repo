@@ -16,7 +16,7 @@ func main() {
 	text := "Hola"
 	key := "abc1"
 
-	fmt.Printf("\t%s XOR %s = %x\n", text, key, algorithms.XORBytes([]byte(text), key))
+	fmt.Printf("\t%s XOR %s = %s\n", text, key, algorithms.XOR(conversions.AsciiToBinary(text), conversions.AsciiToBinary(key)))
 
 	fmt.Println("2. Descifrado de imagen con XOR")
 
