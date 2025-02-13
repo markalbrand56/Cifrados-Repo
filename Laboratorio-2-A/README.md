@@ -41,12 +41,12 @@ Además, la investigación de una propiedad estadística de la función XOR.
 Laboratorio-2-A
 
 1. Cadenas a bytes
-Hola: [72 111 108 97]
-Adios: [65 100 105 111 115]
+Hola: 01001000 01101111 01101100 01100001 
+Adios: 01000001 01100100 01101001 01101111 01110011 
 
 2. Bytes a cadenas
-[72 111 108 97]: Hola
-[65 100 105 111 115]: Adios
+01001000 01101111 01101100 01100001: Hola
+01000001 01100100 01101001 01101111 01110011: Adios
 
 3. Texto a base64
 Hola: SG9sYQ==
