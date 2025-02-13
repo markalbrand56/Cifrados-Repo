@@ -27,7 +27,7 @@ go run main.go
 
 ```text
 1. Cifrado XOR con cadenas de texto
-	Hola XOR abc1 = 290d0f50
+	Hola XOR abc1 = 00101001000011010000111101010000
 ```
 
 ### Descifrado de imagen con llave
