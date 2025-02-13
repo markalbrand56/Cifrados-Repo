@@ -24,13 +24,13 @@ func main() {
 
 	fmt.Println("1. Cadenas a bytes")
 
-	fmt.Printf("%s: %v\n", "Hola", conversions.AsciiToBytes("Hola"))
-	fmt.Printf("%s: %v\n", "Adios", conversions.AsciiToBytes("Adios"))
+	fmt.Printf("%s: %v\n", "Hola", conversions.AsciiToBinary("Hola"))
+	fmt.Printf("%s: %v\n", "Adios", conversions.AsciiToBinary("Adios"))
 
 	fmt.Println("2. Bytes a cadenas")
 
-	fmt.Printf("%v: %s\n", []byte{72, 111, 108, 97}, conversions.BytesToAscii([]byte{72, 111, 108, 97}))
-	fmt.Printf("%v: %s\n", []byte{65, 100, 105, 111, 115}, conversions.BytesToAscii([]byte{65, 100, 105, 111, 115}))
+	fmt.Printf("%s: %s\n", "01001000 01101111 01101100 01100001", conversions.BinaryToAscii("01001000 01101111 01101100 01100001"))
+	fmt.Printf("%s: %s\n", "01000001 01100100 01101001 01101111 01110011", conversions.BinaryToAscii("01000001 01100100 01101001 01101111 01110011"))
 
 	fmt.Println("3. Texto a base64")
 
