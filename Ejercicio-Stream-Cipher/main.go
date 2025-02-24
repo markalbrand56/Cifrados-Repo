@@ -11,6 +11,8 @@ func main() {
 	seed := uint32(1234567890)
 	keystream := keys.GenerateKeystream(len(message), seed)
 
+	fmt.Println("Keystream:", keystream)
+
 	ciphertext := algorithms.XORBytes([]byte(message), string(keystream))
 	fmt.Println("Ciphertext:", ciphertext)
 
