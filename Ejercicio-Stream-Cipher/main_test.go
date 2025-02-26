@@ -3,6 +3,7 @@ package main
 import (
 	"Ejercicio-Stream-Cipher/algorithms"
 	"Ejercicio-Stream-Cipher/scripts/keys"
+	"slices"
 	"testing"
 )
 
@@ -29,6 +30,10 @@ func TestGenerarKeystream(t *testing.T) {
 
 	if len(keystream) != length {
 		t.Errorf("Error en la función GenerateKeystream")
+	}
+
+	if slices.Equal(keystream, keys.GenerateKeystream(length, seed-1)) {
+		t.Errorf("Error en la función GenerateKeystream, debería ser diferente por la aleatoriedad")
 	}
 }
 
