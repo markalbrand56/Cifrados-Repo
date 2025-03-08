@@ -141,4 +141,9 @@ func main() {
 	}
 
 	err = os.WriteFile("./outputs/pic_descifrada_aes_ecb.png", decryptedAes, 0644)
+
+	if err != nil {
+		fmt.Println("Error guardando imagen:", err)
+		return
+	}
 }
