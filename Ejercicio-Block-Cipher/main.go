@@ -1,21 +1,44 @@
 package main
 
 import (
+	"Ejercicio-Block-Cipher/algorithms"
+	"Ejercicio-Block-Cipher/scripts"
 	"fmt"
+	"os"
 )
 
-//TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
-// the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
-
 func main() {
-	//TIP <p>Press <shortcut actionId="ShowIntentionActions"/> when your caret is at the underlined text
-	// to see how GoLand suggests fixing the warning.</p><p>Alternatively, if available, click the lightbulb to view possible fixes.</p>
-	s := "gopher"
-	fmt.Println("Hello and welcome, %s!", s)
+	fmt.Println("DES (ECB)")
 
-	for i := 1; i <= 5; i++ {
-		//TIP <p>To start your debugging session, right-click your code in the editor and select the Debug option.</p> <p>We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-		// for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.</p>
-		fmt.Println("i =", 100/i)
+	file, err := os.ReadFile("inputs/des.txt")
+
+	if err != nil {
+		fmt.Println("\nError leyendo archivo:", err)
+		return
 	}
+
+	fmt.Println("\nTexto plano:", string(file))
+
+	key := scripts.DynamicKey(8)
+
+	fmt.Println("\nClave:", key)
+
+	encryptedDes, err := algorithms.EncryptDESECB(file, key)
+
+	if err != nil {
+		fmt.Println("Error cifrando:", err)
+		return
+	}
+
+	fmt.Println("\nTexto cifrado:", string(encryptedDes))
+
+	decryptedDes, err := algorithms.DecryptDESECB(encryptedDes, key)
+
+	if err != nil {
+		fmt.Println("\nError descifrando:", err)
+		return
+	}
+
+	fmt.Println("\nTexto descifrado:", string(decryptedDes))
+
 }
