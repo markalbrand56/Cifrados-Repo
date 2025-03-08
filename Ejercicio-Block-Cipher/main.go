@@ -78,4 +78,46 @@ func main() {
 	}
 
 	fmt.Println("\nTexto descifrado:", string(decrypted3Des))
+
+	// AES (CBC y ECB)
+
+	fmt.Println("\nAES (CBC)")
+
+	image, err := os.ReadFile("inputs/pic.png")
+
+	if err != nil {
+		fmt.Println("\nError leyendo archivo:", err)
+		return
+	}
+
+	key = scripts.DynamicKey(16)
+
+	fmt.Println("\nClave:", key)
+
+	ivAES := scripts.DynamicKey(16) // Inicialización de vector aleatorio
+
+	fmt.Println("\nIV:", ivAES)
+
+	encryptedAes, err := algorithms.EncryptAESCBC(image, key, ivAES)
+
+	if err != nil {
+		fmt.Println("Error cifrando:", err)
+		return
+	}
+
+	fmt.Println("\nImagen cifrada:", encryptedAes)
+
+	decryptedAes, err := algorithms.DecryptAESCBC(encryptedAes, key, ivAES)
+
+	if err != nil {
+		fmt.Println("\nError descifrando:", err)
+		return
+	}
+
+	err = os.WriteFile("./outputs/pic_descifrada.png", decryptedAes, 0644)
+
+	if err != nil {
+		fmt.Println("Error guardando imagen:", err)
+		return
+	}
 }
