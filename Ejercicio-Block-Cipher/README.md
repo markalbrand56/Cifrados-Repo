@@ -135,3 +135,11 @@ Para elegir un modo seguro en cada lenguaje de programación, se deben tener en 
 
 - **ECB**: No se recomienda utilizar el modo de operación ECB en la mayoría de los casos debido a que no proporciona confidencialidad en los datos.
 - **CBC**: El modo de operación CBC es más seguro que el modo de operación ECB, ya que cada bloque de texto cifrado depende del bloque de texto cifrado anterior.
+
+## Reflexión
+
+Los generadores pseudoaleatorios son una herramienta muy útil en la criptografía, ya que permiten generar claves y vectores de inicialización de forma rápida.
+
+Aun así, no son una opción completamente segura. Los generadores pseudoaleatorios son deterministas, lo que significa que si se conoce el estado inicial del generador, se puede predecir el resto de la secuencia.
+
+En una situación real, donde es imperativo y crítico mantener la confidencialidad de los datos se debe de utilizar un generador de números aleatorios criptográficamente seguro.
