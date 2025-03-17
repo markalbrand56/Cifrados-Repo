@@ -45,3 +45,35 @@ anterior. Aún así, el cifrado en modo CBC sigue siendo la mejor opción para c
     bloque de datos es igual a otro, el cifrado de ambos bloques será igual. Esto hace que sea fácil para un atacante
     identificar patrones en los datos cifrados y, por lo tanto, descifrar la información original. Aún así, como lo pudo
     demostrar el ejemplo del paisaje, no siempre es tan fácil identificar patrones en los datos cifrados con ECB.
+
+## Parte 2: Capturando Cifrado en Red con Wireshark
+
+### Preguntas para reflexión:
+
+- ¿Se puede identificar que los mensajes están cifrados con AES-CBC?
+
+- ¿Cómo podríamos proteger más esta comunicación?
+
+## Parte 3: Implementando un Cifrado de Flujo con ChaCha20
+
+Para medir el rendimiento del cifrado de flujo con ChaCha20 en comparación con AES-CBC, se utilizó el profiler
+de Go. Se utilizó una imagen de 33.2 MB para realizar las pruebas.
+
+```text
+Parte 3: Implementando un Cifrado de Flujo con ChaCha20
+Cantidad de bytes: 34682396
+AES-CBC → Tiempo: 94.8538ms, Memoria usada: 110091 KB
+ChaCha20 → Tiempo: 83.7184ms, Memoria usada: 33869 KB
+```
+
+###  Preguntas para reflexión:
+
+- ¿Analizar que cifrado es mas rápido ChaCha20 o AES?
+  - En este caso, ChaCha20 resultó ser más rápido que AES-CBC. Aunque la diferencia no es muy grande, ChaCha20
+    logró cifrar la imagen en menos tiempo que AES-CBC. En cuanto a la memoria utilizada, ChaCha20 también utilizó
+    menos memoria que AES-CBC, alrededor de 76 MB menos lo cuál es una diferencia considerable.
+
+- ¿En qué casos debería usarse en vez de AES?
+  - ChaCha20 debería usarse en casos donde se requiera un cifrado rápido y seguro. Aunque AES es un algoritmo
+    de cifrado muy seguro, ChaCha20 es más rápido y eficiente en términos de rendimiento. Por lo tanto, si se
+    necesita cifrar grandes cantidades de datos de manera rápida, ChaCha20 es una buena opción. 

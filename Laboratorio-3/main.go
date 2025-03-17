@@ -2,6 +2,7 @@ package main
 
 import (
 	"Laboratorio-3/algorithms"
+	"Laboratorio-3/profiler"
 	"Laboratorio-3/scripts"
 	"fmt"
 	"os"
@@ -9,6 +10,27 @@ import (
 )
 
 func main() {
+	fmt.Println("Laboratorio 3")
+
+	fmt.Println("Desea ejecutar la parte 1? (s/n)")
+	var input string
+
+	fmt.Scanln(&input)
+
+	if input == "s" {
+		part1()
+	}
+
+	fmt.Println("Desea ejecutar la parte 3? (s/n)")
+
+	fmt.Scanln(&input)
+
+	if input == "s" {
+		part3()
+	}
+}
+
+func part1() {
 	fmt.Println("Parte 1: Rompiendo ECB en imágenes")
 
 	// Leer la imagen
@@ -81,4 +103,48 @@ func findHeaderEnd(data []byte) int {
 	}
 
 	return -1
+}
+
+func part3() {
+	fmt.Println("Parte 3: Implementando un Cifrado de Flujo con ChaCha20")
+
+	file := "inputs/STScI-01J3DPE3HXZW78PT53ZVF17K0P.tif" // Imagen pesada
+
+	image, err := os.ReadFile(file)
+	if err != nil {
+		fmt.Println("\nError leyendo archivo:", err)
+		return
+	}
+
+	fmt.Println("Cantidad de bytes:", len(image))
+
+	// AES-CBC
+	key := scripts.DynamicKey(16)
+	iv := scripts.DynamicKey(16)
+
+	aesDuration, aesMem, err := profiler.MeasureMemoryUsage(func() error {
+		_, err := algorithms.EncryptAESCBC(image, key, iv)
+		return err
+	})
+
+	if err != nil {
+		fmt.Println("Error cifrando con AES-CBC:", err)
+		return
+	}
+
+	fmt.Printf("AES-CBC → Tiempo: %v, Memoria usada: %d KB\n", aesDuration, aesMem/1024)
+
+	// ChaCha20
+	keyChaCha := scripts.DynamicKey(32)
+	chachaDuration, chachaMem, err := profiler.MeasureMemoryUsage(func() error {
+		_, _, err := algorithms.EncryptChaCha20(image, keyChaCha)
+		return err
+	})
+
+	if err != nil {
+		fmt.Println("Error cifrando con ChaCha20:", err)
+		return
+	}
+
+	fmt.Printf("ChaCha20 → Tiempo: %v, Memoria usada: %d KB\n", chachaDuration, chachaMem/1024)
 }
