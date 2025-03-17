@@ -31,7 +31,17 @@ anterior. Aún así, el cifrado en modo CBC sigue siendo la mejor opción para c
 ### Preguntas para reflexión
 
 - ¿Por qué el cifrado ECB revela los patrones de la imagen?
+  - El cifrado ECB revela los patrones de la imagen porque cifra bloques de la imagen de manera independiente. Esto
+    significa que si un bloque de la imagen es igual a otro, el cifrado de ambos bloques será igual. Por lo tanto, si
+    hay patrones en la imagen, estos se repetirán en la imagen cifrada.
 
 - ¿Cómo cambia la apariencia con CBC?
+  - Con CBC, la apariencia de la imagen cambia drásticamente. Esto se debe a que CBC cifra los bloques de la imagen
+    de manera dependiente, utilizando el cifrado de bloques anteriores para cifrar el siguiente bloque. Esto hace que
+    la imagen resultante sea totalmente diferente a la original, ya que no se pueden predecir los bloques cifrados. 
 
 - ¿Qué tan seguro es usar ECB para cifrar datos estructurados?
+  - Usar ECB para cifrar datos estructurados no es seguro. Esto se debe a que, como se mencionó anteriormente, si un
+    bloque de datos es igual a otro, el cifrado de ambos bloques será igual. Esto hace que sea fácil para un atacante
+    identificar patrones en los datos cifrados y, por lo tanto, descifrar la información original. Aún así, como lo pudo
+    demostrar el ejemplo del paisaje, no siempre es tan fácil identificar patrones en los datos cifrados con ECB.
