@@ -5,17 +5,21 @@ import (
 	"crypto/cipher"
 )
 
-// EncryptAESECB Cifrado AES en modo ECB
+// EncryptAESECB cifra los datos en modo ECB con padding
 func EncryptAESECB(plainText, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	paddedText := padPKCS5(plainText, block.BlockSize())
+
+	// Aplicar padding si es necesario
+	paddedText := padPKCS7(plainText, aes.BlockSize)
+
 	cipherText := make([]byte, len(paddedText))
-	for i := 0; i < len(paddedText); i += block.BlockSize() {
-		block.Encrypt(cipherText[i:i+block.BlockSize()], paddedText[i:i+block.BlockSize()])
+	for i := 0; i < len(paddedText); i += aes.BlockSize {
+		block.Encrypt(cipherText[i:i+aes.BlockSize], paddedText[i:i+aes.BlockSize])
 	}
+
 	return cipherText, nil
 }
 
@@ -32,17 +36,22 @@ func DecryptAESECB(cipherText, key []byte) ([]byte, error) {
 	return unpadPKCS5(plainText)
 }
 
-// EncryptAESCBC Cifrado AES en modo CBC
-func EncryptAESCBC(plainText, key, iv []byte) ([]byte, error) {
+// EncryptAESCBC cifra los datos en modo CBC con padding
+func EncryptAESCBC(plainText, key []byte, iv []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	paddedText := padPKCS5(plainText, block.BlockSize())
+
+	// Aplicar padding si es necesario
+	paddedText := padPKCS7(plainText, aes.BlockSize)
+
 	cipherText := make([]byte, len(paddedText))
 	mode := cipher.NewCBCEncrypter(block, iv)
 	mode.CryptBlocks(cipherText, paddedText)
-	return cipherText, nil
+
+	// Devolver IV + datos cifrados (el IV debe almacenarse para el descifrado)
+	return append(iv, cipherText...), nil
 }
 
 // DecryptAESCBC Descifrado AES en modo CBC

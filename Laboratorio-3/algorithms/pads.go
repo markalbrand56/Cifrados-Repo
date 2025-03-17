@@ -23,3 +23,25 @@ func unpadPKCS5(data []byte) ([]byte, error) {
 	}
 	return data[:len(data)-padding], nil
 }
+
+// Padding manual para DES (PKCS7)
+func padPKCS7(data []byte, blockSize int) []byte {
+	padding := blockSize - (len(data) % blockSize)
+	padText := make([]byte, padding)
+	for i := range padText {
+		padText[i] = byte(padding) // Cada byte es igual al número de bytes agregados
+	}
+	return append(data, padText...)
+}
+
+// Remueve el padding PKCS7
+func unpadPKCS7(data []byte) ([]byte, error) {
+	if len(data) == 0 {
+		return nil, errors.New("data is empty")
+	}
+	padding := int(data[len(data)-1])
+	if padding > len(data) {
+		return nil, errors.New("invalid padding")
+	}
+	return data[:len(data)-padding], nil
+}
