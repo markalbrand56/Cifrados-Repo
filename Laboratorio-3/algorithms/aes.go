@@ -71,7 +71,6 @@ func DecryptAESCBC(cipherText, key []byte) ([]byte, error) {
 	iv := cipherText[:aes.BlockSize]            // Extraer IV
 	encryptedData := cipherText[aes.BlockSize:] // Extraer datos cifrados
 
-	// **IMPORTANTE**: Asegurar que el tamaño sea un múltiplo del bloque
 	if len(encryptedData)%aes.BlockSize != 0 {
 		return nil, errors.New("ciphertext no es múltiplo del tamaño del bloque")
 	}
