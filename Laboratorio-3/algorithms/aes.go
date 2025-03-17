@@ -3,6 +3,7 @@ package algorithms
 import (
 	"crypto/aes"
 	"crypto/cipher"
+	"errors"
 )
 
 // EncryptAESECB cifra los datos en modo ECB con padding
@@ -23,17 +24,19 @@ func EncryptAESECB(plainText, key []byte) ([]byte, error) {
 	return cipherText, nil
 }
 
-// DecryptAESECB Descifrado AES en modo ECB
+// DecryptAESECB descifra AES en modo ECB
 func DecryptAESECB(cipherText, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
+
 	plainText := make([]byte, len(cipherText))
 	for i := 0; i < len(cipherText); i += block.BlockSize() {
 		block.Decrypt(plainText[i:i+block.BlockSize()], cipherText[i:i+block.BlockSize()])
 	}
-	return unpadPKCS5(plainText)
+
+	return unpadPKCS7(plainText)
 }
 
 // EncryptAESCBC cifra los datos en modo CBC con padding
@@ -54,14 +57,28 @@ func EncryptAESCBC(plainText, key []byte, iv []byte) ([]byte, error) {
 	return append(iv, cipherText...), nil
 }
 
-// DecryptAESCBC Descifrado AES en modo CBC
-func DecryptAESCBC(cipherText, key, iv []byte) ([]byte, error) {
+// DecryptAESCBC descifra AES en modo CBC
+func DecryptAESCBC(cipherText, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	plainText := make([]byte, len(cipherText))
+
+	// **Corrección**: Extraer el IV antes de descifrar
+	if len(cipherText) < aes.BlockSize {
+		return nil, errors.New("ciphertext demasiado corto")
+	}
+	iv := cipherText[:aes.BlockSize]            // Extraer IV
+	encryptedData := cipherText[aes.BlockSize:] // Extraer datos cifrados
+
+	// **IMPORTANTE**: Asegurar que el tamaño sea un múltiplo del bloque
+	if len(encryptedData)%aes.BlockSize != 0 {
+		return nil, errors.New("ciphertext no es múltiplo del tamaño del bloque")
+	}
+
+	plainText := make([]byte, len(encryptedData))
 	mode := cipher.NewCBCDecrypter(block, iv)
-	mode.CryptBlocks(plainText, cipherText)
-	return unpadPKCS5(plainText)
+	mode.CryptBlocks(plainText, encryptedData)
+
+	return unpadPKCS7(plainText)
 }
