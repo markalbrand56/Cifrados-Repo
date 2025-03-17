@@ -12,8 +12,8 @@ func main() {
 	fmt.Println("Parte 1: Rompiendo ECB en imágenes")
 
 	// Leer la imagen
-	filename := "tux.ppm"
-	//filename := "koenigsegg-agera-RS.ppm"
+	//filename := "tux.ppm"
+	filename := "pexels-rodolfoclix-922610.ppm"
 
 	image, err := os.ReadFile(fmt.Sprintf("inputs/%s", filename))
 
