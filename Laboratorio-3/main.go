@@ -12,7 +12,11 @@ func main() {
 	fmt.Println("Parte 1: Rompiendo ECB en imágenes")
 
 	// Leer la imagen
-	image, err := os.ReadFile("inputs/tux.ppm")
+	filename := "tux.ppm"
+	//filename := "koenigsegg-agera-RS.ppm"
+
+	image, err := os.ReadFile(fmt.Sprintf("inputs/%s", filename))
+
 	if err != nil {
 		fmt.Println("\nError leyendo archivo:", err)
 		return
@@ -40,7 +44,8 @@ func main() {
 	}
 
 	// Guardar la imagen cifrada (manteniendo el encabezado intacto)
-	err = os.WriteFile("./outputs/tux_aes_ecb.ppm", append(header, encryptedPixels...), 0644)
+	err = os.WriteFile(fmt.Sprintf("./outputs/aes_ecb_%s", filename), append(header, encryptedPixels...), 0644)
+
 	if err != nil {
 		fmt.Println("Error escribiendo archivo cifrado:", err)
 		return
@@ -63,7 +68,7 @@ func main() {
 	}
 
 	// Guardar la imagen cifrada (manteniendo el encabezado intacto)
-	err = os.WriteFile("./outputs/tux_aes_cbc.ppm", append(header, encryptedPixels...), 0644)
+	err = os.WriteFile(fmt.Sprintf("./outputs/aes_cbc_%s", filename), append(header, encryptedPixels...), 0644)
 }
 
 // Encuentra el fin del encabezado PPM
