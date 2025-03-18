@@ -19,3 +19,5 @@ En el ejemplo, se utilizó una máquina virtual con Kali Linux, donde se ejecut�
 En la captura de pantalla se puede observar como el ransomware cifra los archivos de la carpeta en la que se encuentra, y posteriormente el decryptor descifra los archivos.
 
 ![Captura de pantalla]()
+
+![Captura de pantalla]()
